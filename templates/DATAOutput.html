@@ -14,7 +14,9 @@
 	<hr>	
 	<h2 style = "font-family:courier">
 	{% for elm in results %}
+	{% if elm != 'inputData' %}
 	{{elm}} = {{results[elm]}}<br>
+	{% endif %}
 	{% endfor %}
 	</h2>	
   </body>
