@@ -1,0 +1,42 @@
+<html>
+
+  <head>
+    <title>Dataset Input Form.</title>
+  </head>
+  
+  <body>
+    <style>
+      h3{font-family:tahoma; background-color:lightblue; border-left-style:solid;
+         border-left-color:blue; border-left-width:5px;}	  
+    </style>
+	
+    <h3>Dataset online analysis.</h3>
+	<h4 style="font-family:tahoma">
+	This is a web application built based on <i><b>Python Flask framework</b></i> for training purposes.<br>
+	</h4>
+	<p><a href="{{url_for('homePage')}}">Return to HOME.</a></p>
+	<p><a href="https://github.com/hamadasoma/Loadcell_FlaskApp">Click here to get to the project at Github.</a></p>
+	
+    <div style="background:darkcyan">
+       <form method="POST">
+          <fieldset>
+            <legend><b style="font-family:tahoma; color:darkorange">Enter the dataset sequence to be analyzed.</b></legend>
+             Example:20,15,83,4.56,171,32.77<br><br>
+			 <input type="text" name="dataset" style="width:1000; height:40"/><br><br>            
+			 <input type="submit" name="analyse" value="Analysis now"/>
+          </fieldset>
+       </form>
+    </div>	
+  </body>
+  
+  <footer style="background-color:gray; position:fixed; bottom:8px; right:16px;">
+    <p>Designed by: <b>Eng. Mohammed Ali Ismail</b>  under Python Flask framework.</p>
+	<p>
+	<a href="https://www.linkedin.com/in/mohammedismail1982">Linkedin</a><b> || </b>
+	<a href="https://www.slideshare.net/MohammedAlismail3">Slideshare</a><b> || </b>
+	<a href="https://github.com/hamadasoma">Github</a><b> || </b>
+	<a href="https://goo.gl/c7m8fp">Resume</a>
+	</p>	
+  </footer>
+  
+</html>
