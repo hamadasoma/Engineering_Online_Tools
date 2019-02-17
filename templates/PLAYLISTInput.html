@@ -1,0 +1,42 @@
+<html>
+
+  <head>
+    <title>Playlist Input Form.</title>
+  </head>
+  
+  <body>
+    <style>
+      h3{font-family:tahoma; background-color:lightblue; border-left-style:solid;
+         border-left-color:blue; border-left-width:5px;}	  
+    </style>
+	
+    <h3>Youtube Playlist Data Mining.</h3>
+	<h4 style="font-family:tahoma">
+	This is a web application built based on <i><b>Python Flask framework</b></i> for training purposes.<br>
+	</h4>
+	<p><a href="{{url_for('homePage')}}">Return to HOME.</a></p>
+	<p><a href="https://github.com/hamadasoma/Engineering_Online_Tools">Click here to get to the project at Github.</a></p>
+	
+    <div style="background:darkcyan">
+       <form method="POST">
+          <fieldset>
+            <legend><b style="font-family:tahoma; color:darkorange">Enter the URL of the Youtube playlist to data mine.</b></legend>
+             Example: https://www.youtube.com/playlist?list=PLjzdnWRibXVCUWg-EbLa-_pNALLDxCxZ2<br><br>
+			 <input type="text" name="playlist" style="width:1000; height:40"/><br><br>            
+			 <input type="submit" name="data_mine" value="Mining now"/>
+          </fieldset>
+       </form>
+    </div>	
+  </body>
+  
+  <footer style="background-color:gray; position:fixed; bottom:8px; right:16px;">
+    <p>Designed by: <b>Eng. Mohammed Ali Ismail</b>  under Python Flask framework.</p>
+	<p>
+	<a href="https://www.linkedin.com/in/mohammedismail1982">Linkedin</a><b> || </b>
+	<a href="https://www.slideshare.net/MohammedAlismail3">Slideshare</a><b> || </b>
+	<a href="https://github.com/hamadasoma">Github</a><b> || </b>
+	<a href="https://goo.gl/c7m8fp">Resume</a>
+	</p>	
+  </footer>
+  
+</html>

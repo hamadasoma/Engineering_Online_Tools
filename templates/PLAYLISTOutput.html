@@ -1,0 +1,36 @@
+<html>
+  
+  <head>
+    <title>RESULTS.</title>
+  </head>
+  
+  <body>
+    <p><a href="{{url_for('YOUTUBEinputPage')}}">Return to PLAYLIST URL INPUT PAGE.</a></p>
+	<p><a href="{{url_for('homePage')}}">Return to HOME.</a></p>
+	
+	<h2 style="font-family:tahoma; background-color:lightgreen">
+	{{Playlist_title}}	
+	</h2>
+	<p><a href = "{{playlist_url}}">{{playlist_url}}</a></p>
+	
+	<div style = "background-color:darkblue; color:honeydew; font-family:tahoma">
+	<h3>Number of videos :  {{Number_of_videos}} videos.</h3>
+	<h3>Total time duration of the playlist : {{Total_duration}} hours.</h3>
+	<h3>Time length average :  {{Average_duration}} minutes.</h3>
+	<h3>Durations deviations :  {{Durations_deviation}} minutes.</h3>
+	<img src="{{Playlist_logo}}" style="position:absolute; top:100px; right:50px">
+	</div>
+  </body>
+  
+  <footer>
+    <p>Designed by: <b>Eng. Mohammed Ali Ismail</b>  under Python Flask framework.</p>
+	<p>
+	<a href="https://www.linkedin.com/in/mohammedismail1982">Linkedin</a><b> || </b>
+	<a href="https://www.slideshare.net/MohammedAlismail3">Slideshare</a><b> || </b>
+	<a href="https://github.com/hamadasoma">Github</a><b> || </b>
+	<a href="https://goo.gl/c7m8fp">Resume</a>
+	</p>	
+  </footer>
+  
+  
+</html>

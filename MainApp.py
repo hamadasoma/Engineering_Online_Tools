@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, url_for, redirect
+from statistics import mean, stdev, median, median_high, median_low, mode
 from loadcell import  *
-from statistics import mean, median, median_high, median_low, mode
+from youtube_pl import *
 
 app = Flask(__name__)
 
@@ -17,7 +18,7 @@ def homePage():
 #LOADCELLS PAGE
 #----------------------
 @app.route("/on;ine-loadcell-calculator",  methods = ['GET', 'POST'])
-def LCinputPage():
+def LCinputPage():    
     if (request.method == 'POST'):        
         if "calcWeight" in request.form:
             formDict = {'formFlag' :  "calcWeight",
@@ -41,7 +42,7 @@ def LCinputPage():
 #DATA ANALYSIS PAGE
 #----------------------------
 @app.route("/online-data-analyzer",  methods = ['GET', 'POST'])
-def DATAinputPage():
+def DATAinputPage():    
     if (request.method == 'POST'):
         dataset = request.form.get('dataset')
         dataset = dataset.split(',')
@@ -54,6 +55,7 @@ def DATAinputPage():
         results = {
             'inputData' : dataset,
             'dataMean' : mean(dataset),
+            'dataStandardDeviation' : stdev(dataset),
             'dataMedian' : median(dataset),
             'dataMedianHigh' : median_high(dataset),
             'dataMedianLow' : median_low(dataset),
@@ -62,6 +64,29 @@ def DATAinputPage():
         return(render_template("DATAOutput.html",  **results, results = results))
     else:
         return(render_template("DATAInput.html"))
+
+
+#YOUTUBE PLAYLISTS PAGE
+#----------------------
+@app.route("/youtube-data-miner",  methods = ['GET', 'POST'])
+def YOUTUBEinputPage():
+    if (request.method == 'POST'):
+        playlist_url = request.form.get('playlist')
+        playlist = youtubePlaylist(playlist_url)
+        results = {
+            'playlist_url' : playlist_url,
+            'Playlist_title' : playlist.playlistTitle,
+            'Number_of_videos' : playlist.videosQty,
+            'Total_duration' : playlist.playlistDuration,
+            'Average_duration' : playlist.timeAverage,
+            'Durations_deviation' : playlist.timeDeviation,
+            'Playlist_logo' : playlist.playlistLogo
+            }
+        return(render_template("PLAYLISTOutput.html", **results))
+    else :
+        return(render_template("PLAYLISTInput.html"))
+
+    
 
 if __name__ == '__main__' :
    app.run(debug = True)
