@@ -3,17 +3,63 @@
   <head>
     <title>Engineering Tools Built Under Flask Framework.</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+      div.gallery {
+                    margin: 5px;
+                    border: 1px solid darkblue;
+                    float: left;
+                    width: 180px;
+					height: 200px
+                   }
+
+      div.gallery:hover {
+                         border: 1px solid #777;
+                          }
+
+      div.gallery img {
+                        width: 100%;
+                        height: 80%;
+                         }
+
+      div.desc {
+                font-family: sans-serif; 
+                text-align: center;
+				padding: 5px;
+				background-color: lightgreen;
+                  }
+	  #bgImage {background-image: url({{url_for('static', filename=bg_image)}}); background-repeat: no-repeat;
+                background-size: 100% 100%;}
+   </style>
   </head>
   
-  <body>
-    <div style="background-color:darkblue; color:orange">
-    <h3>All the following applications are built using <i><b>Python Flask framework</b></i>.</h3>
-	<h3>Click on the application you need.</h3>
-	<hr>
+  <body id="bgImage">
+    <div style="background-color:lightgreen; color:darkblue">
+      <h2 style="text-align: center; padding-top:5px;">Web applications built using <i><b>Python Flask framework</b></i>.</h2>	  
+	  <hr>
 	</div>
-    <h3><a href= "{{url_for('LCinputPage')}}">Loadcells Calculations</a></h3>
-	<h3><a href= "{{url_for('DATAinputPage')}}">Datasets Analysis</a></h3>
-	<h3><a href= "{{url_for('YOUTUBEinputPage')}}">Youtube Playlist Data Mining</a></h3>
+	
+    <div class="gallery">
+      <a href="{{url_for('LCinputPage')}}">
+        <img src="{{url_for('static', filename='loadcell.png')}}"  width="600" height="400">
+      </a>
+      <div class="desc">Loadcells Calculations</div>
+    </div>
+
+    <div class="gallery">
+      <a href="{{url_for('DATAinputPage')}}">
+        <img src="{{url_for('static', filename='data.png')}}" width="600" height="400">
+      </a>
+      <div class="desc">Datasets Analysis</div>
+    </div>
+
+    <div class="gallery">
+      <a href="{{url_for('YOUTUBEinputPage')}}">
+        <img src="{{url_for('static', filename='youtube.png')}}" width="600" height="400">
+      </a>
+      <div class="desc"> Playlist info</div>
+    </div>
+    
+    
   </body>
   
   <footer style="background-color:gray; position:fixed; bottom:8px; right:16px;">

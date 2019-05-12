@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect
 from statistics import mean, stdev, median, median_high, median_low, mode
+from random import choice
 from loadcell import  *
 from youtube_pl import *
 
@@ -13,11 +14,12 @@ def err404(error):
 #----------------
 @app.route("/")
 def homePage():
-    return(render_template('home.html'))
+    bg_image = str(choice(range(1,9))) + '.jpg'
+    return(render_template('home.html', bg_image = bg_image))
   
 #LOADCELLS PAGE
 #----------------------
-@app.route("/on;ine-loadcell-calculator",  methods = ['GET', 'POST'])
+@app.route("/online-loadcell-calculator",  methods = ['GET', 'POST'])
 def LCinputPage():    
     if (request.method == 'POST'):        
         if "calcWeight" in request.form:
@@ -60,7 +62,7 @@ def DATAinputPage():
             'dataMedianHigh' : median_high(dataset),
             'dataMedianLow' : median_low(dataset),
             'dataMode' : modifiedMode(dataset)
-            }
+            }        
         return(render_template("DATAOutput.html",  **results, results = results))
     else:
         return(render_template("DATAInput.html"))

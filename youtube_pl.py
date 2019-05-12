@@ -22,7 +22,7 @@ class youtubePlaylist :
         playlistReq = get(youtube_url)
         playlistSoup = BeautifulSoup(playlistReq.content, 'html.parser')
         #-------------------------------------------------------------------------------------------------------
-        videolist = playlistSoup.findAll('div', attrs = {'class' : "timestamp"}) #Extracting time durations data.
+        videolist = playlistSoup.find_all('div', attrs = {'class' : "timestamp"}) #Extracting time durations data.
         self.videosQty = len(videolist)    #Number of videos in the playlist
         videoLengthsText = [eachvideo.string for eachvideo in videolist]        
         playlistDuration = sum(map(lambda x: duration(x), videoLengthsText)) / 60  #In hours
